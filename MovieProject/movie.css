@@ -25,18 +25,19 @@ h1 {
 
 #topbar button {
     float: right;
-    background-color: #e7e7e7; color: black;
+    background-color: #c7c7c7; color: black;
     border: none;
     color: white;
     text-decoration: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
+    margin-left: 20px;
 }
-s
+
 #topbar button:hover {
     
-    background-color: #bebebe; color: black;
+    background-color: #797878; color: black;
 }
 
 #header {
@@ -93,7 +94,7 @@ s
 
 
 
-.side-stuff {
+#side-stuff {
     position: relative;
     /* float: right; */
     /* display: inline-block; */
