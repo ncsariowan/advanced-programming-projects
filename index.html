@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:300i,400" rel="stylesheet">
+    <title>Advanced Programming</title>
+    <style>
+        body {
+            margin: 0
+        }
+
+        #container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #center {
+
+            position: absolute;
+            width: 80%;
+
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        h1 {
+            font-family: 'Merriweather Sans';
+        }
+
+        .clickable {
+            cursor: pointer;
+        }
+    </style>
+    <script>
+
+
+        function loadXMLDoc() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    parseXML(this);
+                }
+            };
+            xmlhttp.open("GET", "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fxkcd.com%2Frss.xml", true);
+            xmlhttp.send();
+        }
+
+        function parseXML(xml) {
+            response = JSON.parse(xml.response);
+            console.log(response.items);
+
+            document.getElementById("image-div").innerHTML = response.items[0].content;
+
+        }
+
+        function toggleHiddenDiv() {
+            if (document.getElementById("hidden-div").classList.contains("hidden")) {
+                document.getElementById("hidden-div").classList.remove("hidden");
+            } else {
+
+                document.getElementById("hidden-div").classList.add("hidden");
+            }
+        }
+
+        
+        loadXMLDoc();
+    </script>
+</head>
+
+<body>
+    <div id="container">
+
+        <div id="center">
+            <h1>This webpage is for my advanced programming class projects.</h1>
+            <p class="clickable" onclick="toggleHiddenDiv()"><i>Hi Mr. Maunu! Links will go here soon.</i></p>
+            <div id="hidden-div" class="hidden">
+                <p>This is where previous projects will go.</p>
+                <div id="image-div"></div>>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
