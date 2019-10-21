@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link id="style" href="csspractice.css" rel="stylesheet">
+    <title>CSS Practice</title>
+    <script>
+    </script>
+</head>
+
+<body>
+    <div class="center">
+        <div id="container">
+            <div id="header">
+                <h1>Centered, Red, Title Text (No Border)</h1>
+            </div>
+            <div id="image-section" class="flex-container">
+                <img alt="this guy is taking a selfie" src="https://media.wired.com/photos/598e35fb99d76447c4eb1f28/master/pass/phonepicutres-TA.jpg">
+                <div>
+                    <p>This is just normal paragraph text...the important thing is that it
+                        flows around that photo on the left. Something about lorem and
+                        ipsum.
+                    </p>
+                    <p>
+                        This is another short, normal paragraph that is also flowing
+                        around the image on the left...this paragraph should finish
+                        before the image does (so that there is height left in the image)
+                        and <a href="http://xkcd.com" target="_blank">have a link</a> in it.
+                    </p>
+                </div>
+            </div>
+            <div>
+                <p>
+                    This is yet another normal paragraph but this one should only start after/below the image...it
+                    should be
+                    clear
+                    of the &quot;flow around the image&quot; part. Include a
+                    <a target="_blank" href="http://corndog.io/">link</a> or
+                    <a  target="_blank" href="https://trypap.com/">two</a>.
+                </p>
+            </div>
+            <div id="blue-section">
+                <h2>Not Centered, Blue, Slightly Smaller Heading/Section Title (Self-Described Style)</h2>
+                <p>The description above applies to the size of the heading. The heading above should be smaller than
+                    the
+                    heading at the top of the page. Next is a list...but with letters instead of numbers. Look up the
+                    CSS
+                    property
+                    <i>list-style-type</i> for help.
+                </p>
+                <ol>
+                    <li>List Item 1</li>
+                    <li>List Item 2</li>
+                    <li>List Item 3</li>
+                </ol>
+            </div>
+            <div id="half-section" class="flex-container">
+                <div id="green-div">
+                    <p>
+                        This section should be exactly 50% of the width of
+                        the page and on the left. It should have a
+                        background color and a border color (you choose
+                        colors and the width of the border). There should
+                        also be space (one might call it padding) between
+                        the text and the border. Make the space 20 pixels
+                        on the sides but only 10 pixels above and below.
+                        Note that I didn&#39;t try to model the padding
+                        here...your page should have it. Oh...and
+                        <a href="http://www.movenowthinklater.com/" target="_blank"> links in these two sections </a>
+                        (see the right) should be red
+                        instead of blue (they should be blue elsewhere on
+                        this page).
+                    </p>
+                </div>
+                <div id="orange-div">
+                    <p>
+                        This is similar to the section on the left but it is on the
+                        right. It should have different colors than the one on
+                        the left. These two sections should have the same
+                        height (regardless of how much text is in it) and the
+                        same padding. There is no margin between these two
+                        sections or between the section and the edge of the
+                        page.
+                        <a href="http://www.rrrgggbbb.com/" target="_blank">Red link because it said the links in
+                            these</a>
+                        sections should be red.
+                    </p>
+                </div>
+            </div>
+            <div>
+                <p>
+                    I want to emphasize <span class="highlighted">some words</span> or <span
+                        class="highlighted">phrases</span> with CSS. Create a class and use it on some span tags to
+                    create
+                    an effect like <span class="highlighted">what you see</span> here (different background color on
+                    just
+                    part of the paragraph, like a
+                    highlighter).
+                </p>
+            </div>
+        </div>
+
+        <!-- <div id="css-input-div">
+            <textarea></textarea>
+        </div> -->
+    </div>
+</body>
+
+</html>

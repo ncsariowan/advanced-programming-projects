@@ -1,0 +1,90 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.center {
+    max-width: 1080px;
+    width: 100%;
+}
+
+#container {
+    border: 2px black solid;
+}
+
+.flex-container {
+    display: flex;
+}
+
+
+#header h1 {
+    color: red;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+
+#image-section img {
+    width: 400px;
+    float: left;
+}
+
+#blue-section h2 {
+    color: #5d85cc;
+}
+
+#blue-section * {
+    margin: 0;
+}
+
+#half-section div {
+    flex-grow: 1;
+    margin: 0;
+    padding: 10px;
+    width: 50%;
+}
+
+#half-section p {
+    margin: 0;
+}
+
+#half-section a {
+    color: red;
+}
+
+#half-section #green-div {
+    background-color: #70ad47;
+    border: 4px #002060 solid;
+}
+
+#half-section #orange-div {
+    background-color: #ed7d31;
+    border: 4px red solid;
+}
+
+.highlighted {
+    background-color: yellow;
+}
+
+
+#css-input-div {
+    margin: 0px;
+    padding: 20px;
+    left: 0;
+    right: 0;
+}
+
+#css-input-div textarea {
+    height: 200px;
+    width: 100%;
+    margin: 0;
+    box-sizing: content-box;
+}
+
+
