@@ -1,0 +1,117 @@
+html {
+    font-size: 20px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0 2rem 1rem 2rem;
+    font-size: 0.9rem;
+}
+
+#wrapper {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    position: relative;
+}
+
+[id*="sidebar-"] {
+    width: 8%;
+    background-color: #DBEA13;
+}
+
+#background {
+    position: absolute;
+    z-index: -1000;
+    opacity: 0.25;
+    width: 84%;
+    height: 100%;
+    background-image: url("http://thecutestblogontheblock.com/wp-content/uploads/2011/11/Weave-the-nest-free-stretch-blog-background.jpg");
+    background-attachment: fixed;    
+    background-repeat: no-repeat;
+}
+
+#center-wrapper {
+    max-width: 84%;
+    display: flex;
+    flex-direction: column;
+}
+
+.end-bar {
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+
+    min-height: 50px;
+    line-height: 50px;
+    width: 80%;
+    padding: 5px;
+    font-size: 0.8rem;
+    z-index: 1000;
+
+    background-color: #FC1F17;
+}
+
+.end-bar a:hover {
+    color: #F58783;
+}
+
+#header {
+    position: sticky;
+    top:0;
+}
+
+#content {
+    flex-grow: 1;
+    /* border: 2px solid; */
+    margin: auto;
+    box-sizing: border-box;
+}
+
+
+#img-one {
+    display: block;
+    margin: auto;
+
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    max-width: 400px;
+    width: 80%;
+
+    opacity: 0.5;
+}
+
+#img-one:hover {
+    opacity: 1;
+}
+
+#first-letter {
+    font-size: 2rem;
+    color: #1DED28
+}
+
+#img-two {
+    float: right;
+
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+    width: 40%;
+    max-width: 225px;
+}
+
+#special-list {
+    padding: 0;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    list-style-position: inside;
+    font-size: 0.9rem;
+}
+
+#special-list li:hover {
+    border-left: black solid 2px;
+    color: #F58783;
+}
