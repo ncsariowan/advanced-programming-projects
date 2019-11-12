@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Animation</title>
+    <style>
+        body{ margin: 0;}
+        
+        #animated {
+            width: 21vw;
+            height: 21vw;
+            line-height: 100px;
+            text-align: center;
+            vertical-align: center;
+            position: relative;
+            background-color: red; 
+            margin: 2vw;
+            animation: coloranim 3s linear infinite alternate, animation1 3s infinite linear alternate;
+        }
+
+        @keyframes coloranim {
+            0% { background-color: red; }
+            15% { background-color: orange; }
+            30% { background-color: yellow; }
+            45% { background-color: green; }
+            60% { background-color: blue; }
+            75% { background-color: purple; }
+            90% { background-color: blueviolet;}
+        }
+
+        @keyframes animation1 {
+            from {
+                left: 0vw;
+                font-size: 3px;
+            }
+            to {
+                left: 75vw;
+                font-size: 40px;
+            }
+        }
+
+        #animated-img {
+            height: 400px;
+            position: relative;
+            animation: imganim 8s infinite;
+        }
+
+        @keyframes imganim {
+            0% {
+                left: 0px;
+                top: 0px;
+            }
+            25% {
+                left: 500px;
+                top: 0px;
+                transform: rotate(90deg);
+                height: 200px;
+            }
+            50% {
+                left: 500px;
+                top: 500px;
+                transform: rotate(180deg);
+                height: 10px;
+            }
+            75% {
+                left: 0px;
+                top: 500px;
+                transform: rotate(270deg);
+                height: 200px;
+            }
+            100% {
+                left: 0px;
+                top: 0px;
+                transform: rotate(360deg);
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div id="animated">
+            <span>I'm animated!</span>
+        </div>
+    </div>
+    <div>
+        <img id="animated-img" src="https://gamepedia.cursecdn.com/minecraft_gamepedia/d/d8/Plains_Villager_Base.png">
+    </div>
+</body>
+</html>

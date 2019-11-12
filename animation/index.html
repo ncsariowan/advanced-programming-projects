@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Animation</title>
+    <style>
+
+    
+        #animated {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 100%;
+            margin: auto;
+            animation: test 3s, spin 2s;
+            animation-duration: 2s;
+            animation-direction: alternate, normal;
+            animation-iteration-count: infinite;
+            /* margin-top: 200px; */
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+
+        @keyframes test {
+            from {
+                border-radius: 100%;
+            }
+            to {
+                border-radius: 0%;
+            }
+        }
+
+        @keyframes spin {
+            
+            from {
+            }
+            to {
+                transform: rotate(720deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="animated">
+        Words
+    </div>
+</body>
+</html>

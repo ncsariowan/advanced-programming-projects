@@ -37,6 +37,11 @@
         .clickable {
             cursor: pointer;
         }
+
+        #image-container {
+            display: block;
+        }
+
     </style>
     <script>
 
@@ -56,7 +61,8 @@
             response = JSON.parse(xml.response);
             console.log(response.items);
 
-            document.getElementById("image-div").innerHTML = response.items[0].content;
+            document.getElementById("image-container").innerHTML = response.items[0].content;
+            document.getElementById("image-container").href = response.items[0].link;
 
         }
 
@@ -79,10 +85,15 @@
 
         <div id="center">
             <h1>This webpage is for my advanced programming class projects.</h1>
-            <p class="clickable" onclick="toggleHiddenDiv()"><i>Hi Mr. Maunu! Links will go here soon.</i></p>
+            <p><a target="_blank" href="HTML-CSS-Practical/index.html">HTML-CSS Practical</a></p>
+            <p class="clickable" onclick="toggleHiddenDiv()"><i>Hi Mr. Maunu! Click here for older projects.</i></p>
             <div id="hidden-div" class="hidden">
-                <p>This is where previous projects will go.</p>
-                <div id="image-div"></div>>
+                <p><a target="_blank" href="HTML-CSS-Practical/index.html">HTML-CSS Practical</a></p>
+                <p><a target="_blank" href="CSSPractice/index.html">CSS Practice Project</a></p>
+                <p><a target="_blank" href="https://github.com/ncsariowan/advanced-programming-projects">Github for all projects</a></p>
+                <br>
+                <p>Latest xkcd:</p>
+                <a target="_blank" id="image-container"></a>
             </div>
         </div>
 
