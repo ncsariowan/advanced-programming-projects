@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sprite Sheet</title>
+    <style>
+        body {
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        
+    </style>
+    <script>
+
+        const directions = {
+            LEFT: "left",
+            RIGHT: "right",
+            DOWN: "down",
+            UP: "up",
+        }
+
+        var current_direction = directions.RIGHT;
+        var current_col = 0;
+
+        var x = 0;
+        var y = 0;
+
+        var frames_since_last = 0;
+
+        IMAGE_WIDTH = 120;
+        IMAGE_HEIGHT = 120;
+        NUM_COLS = 6;
+        FRAMES_PER_CHANGE = 4;
+
+        D_PER_FRAME = 60;
+
+        let images = {
+            left: {
+                src: "spritesheetCoolRunnerLeft.png",
+                vertical: false
+            },
+            right: {
+                src: "spritesheetCoolRunnerRight.png",
+                vertical: false
+            },
+            down: {
+                src: "spritesheetCoolRunnerDown.png",
+                vertical: true
+            },
+            up: {
+                src: "spritesheetCoolRunnerUp.png",
+                vertical: true
+            }
+        }
+
+        // Create images and add to images object
+        for (var key in images) {
+            var img = new Image();
+            img.src = images[key].src;
+            images[key].image = img;
+        }
+
+        window.onload = function () {
+            window.requestAnimationFrame(animate);
+        };
+
+        function animate() {
+            var canvas = document.getElementById("canvas")
+            var ctx = canvas.getContext("2d");
+            ctx.globalCompositeOperation = 'destination-over';
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            ctx.save();
+
+            ctx.translate(x, y);
+
+            var isVertical = images[current_direction].vertical;
+
+            ctx.drawImage(images[current_direction].image, isVertical ? 0 : IMAGE_WIDTH * current_col, isVertical ? IMAGE_HEIGHT * current_col : 0,
+                IMAGE_WIDTH, IMAGE_HEIGHT, 0, 0,
+                IMAGE_WIDTH, IMAGE_HEIGHT);
+
+
+            frames_since_last++;
+
+            if (frames_since_last > FRAMES_PER_CHANGE) {
+                frames_since_last = 0;
+
+                switch (current_direction) {
+                    case directions.RIGHT: {
+                        x += D_PER_FRAME;
+                        break;
+                    }
+                    case directions.DOWN: {
+                        y += D_PER_FRAME;
+                        break;
+                    }
+                    case directions.UP: {
+                        y -= D_PER_FRAME;
+                        break;
+                    }
+                    case directions.LEFT: {
+                        x -= D_PER_FRAME;
+                        break;
+                    }
+                }
+                current_col++;
+
+            }
+
+            if (current_col >= NUM_COLS) {
+                current_col = 0;
+            }
+
+            if (x >= canvas.width - 2 * IMAGE_WIDTH && y <= IMAGE_HEIGHT) {
+                current_direction = directions.DOWN;
+            } else if (y >= canvas.height - 2 * IMAGE_HEIGHT && x >= canvas.height - 2 * IMAGE_WIDTH) {
+                current_direction = directions.LEFT;
+            } else if (x <= 0 && y >= canvas.height - 2 * IMAGE_HEIGHT) {
+                current_direction = directions.UP;
+            } else if (y <= 0 && x <= IMAGE_WIDTH) {
+                current_direction = directions.RIGHT;
+            }
+
+            ctx.restore();
+
+            window.requestAnimationFrame(animate);
+
+        }
+
+
+
+    </script>
+</head>
+
+<body>
+    <canvas id="canvas" width=500 height=500></canvas>
+</body>
+
+</html>

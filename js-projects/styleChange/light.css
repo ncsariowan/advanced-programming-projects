@@ -1,0 +1,6 @@
+body {
+    background: white;
+    background-image: url("https://qph.fs.quoracdn.net/main-qimg-65d7b5bb6dc440d68b478d5d45bfe756");
+    
+    backdrop-filter: invert(1);   
+}

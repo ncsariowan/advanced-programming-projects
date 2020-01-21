@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Counter</title>
+    <script>
+    
+        window.onload = function() {
+            console.log(localStorage);
+            if (window.localStorage.getItem("counter") === null) {
+                window.localStorage.setItem("counter", 0);
+            } else {
+                var count = parseInt(window.localStorage.getItem("counter")) + 1;
+                window.localStorage.setItem("counter", count);
+                document.getElementById("counter").innerHTML = count;
+                if (count == 1) {
+                    document.getElementById("times").innerHTML = "time.";
+                }
+            }
+
+        }
+    
+    
+    </script>
+</head>
+<body>
+    <div>
+        <p>You've been to this webpage </p>
+        <p id="counter">0</p>
+        <p id="times">times.</p>
+    </div>
+</body>
+</html>

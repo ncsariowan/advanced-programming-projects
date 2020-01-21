@@ -1,0 +1,7 @@
+body {
+    background-color: black;
+    color: azure;
+    background-image: url("https://static.businessinsider.sg/2019/02/02/5c59e77ceb3ce80d46564023.png");
+    backdrop-filter: invert(1);
+}
+

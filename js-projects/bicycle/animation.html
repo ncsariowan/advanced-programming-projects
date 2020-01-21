@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .canvas {
+            width: 100%;
+            height: 50%;
+        }
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" class="canvas"></canvas>
+    <script>
+
+        x = 0;
+        y = 0;
+
+        prevX = 0;
+
+        bikeWidth = 90;
+        bikeHeight = 50;
+
+        bikeTireRadius = 20;
+
+        bikeTire1OffsetX = -bikeWidth/6;
+        bikeTire1OffsetY = bikeHeight/3.6;
+
+
+        bikeTire2OffsetX = bikeWidth * 0.7;
+        bikeTire2OffsetY = bikeHeight / 2.6;
+
+        var bike = new Image();
+        bike.src = "BikeFrame.gif";
+
+        var tire = new Image();
+        tire.src = "BikeTire.gif";
+        tire.width = bikeTireRadius * 2;
+        tire.height = bikeTireRadius * 2;
+
+        window.requestAnimationFrame(animate);
+
+        var ang = 0;
+
+        var rightkeypressed = false;
+
+        var leftkeypressed = false;
+
+        var spacekeypressed = false;
+
+        var da = 0.2;
+
+        var slowDown = 0.05;
+
+        var accel = 0;
+
+        var speed = 0;
+
+        var maxSpeed = 10;
+
+        var brakeda = 0.5
+
+        function animate() {
+
+            var canvas = document.getElementById("canvas")
+            var ctx = canvas.getContext("2d");
+            ctx.globalCompositeOperation = 'destination-over';
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            ctx.save();
+
+            ctx.translate(x, y);
+
+            ctx.drawImage(bike, 0, 0, bikeWidth, bikeHeight);
+
+            ctx.restore();
+
+            ctx.save();
+            ctx.resetTransform();
+
+            ctx.translate(x + bikeTire1OffsetX, y + bikeTire1OffsetY);
+            ctx.translate(bikeTireRadius, bikeTireRadius);
+            ctx.rotate(x / bikeTireRadius);
+
+            ctx.drawImage(tire, -bikeTireRadius, -bikeTireRadius, bikeTireRadius * 2, bikeTireRadius * 2);
+
+            ctx.restore();
+
+            ctx.save();
+            ctx.resetTransform();
+
+            ctx.translate(x + bikeTire2OffsetX, y + bikeTire2OffsetY);
+            ctx.translate(bikeTireRadius, bikeTireRadius);
+            ctx.rotate(x / bikeTireRadius);
+
+            ctx.drawImage(tire, -bikeTireRadius, -bikeTireRadius, bikeTireRadius * 2, bikeTireRadius * 2);
+
+            ctx.restore();
+
+            if (rightkeypressed) {
+                accel = da;
+            } else if (leftkeypressed) {
+                accel = -da;
+            } else if (spacekeypressed) {
+                if (speed == 0) {
+                    accel = 0;
+                } else if (speed > 0) {
+                    accel = -brakeda;
+                } else {
+                    accel = brakeda;
+                }
+            } else {
+                if (speed == 0) {
+                    accel = 0;
+                } else if (speed > 0) {
+                    accel = -slowDown;
+                } else {
+                    accel = slowDown;
+                }
+            }
+
+            speed += accel;
+
+            if (speed < 0.01 && speed > -0.01) speed = 0;
+
+            x += speed;
+
+
+            if (x > canvas.width + bikeTireRadius) {
+                x = -bikeWidth;
+            } else if (x < - bikeWidth - bikeTireRadius) {
+                x = canvas.width + bikeTireRadius;
+            }
+
+
+            window.requestAnimationFrame(animate);
+        }
+
+        document.addEventListener("keydown", event => {
+
+            if (event.keyCode === 39) {
+                rightkeypressed = true;
+            }
+
+            if (event.keyCode === 37) {
+                leftkeypressed = true;
+            }
+
+            if (event.keyCode == 32) {
+                spacekeypressed = true;
+            }
+
+        });
+
+        document.addEventListener("keyup", event => {
+
+            if (event.keyCode === 39) {
+                rightkeypressed = false;
+            }
+
+            if (event.keyCode === 37) {
+                leftkeypressed = false;
+            }
+
+
+            if (event.keyCode == 32) {
+                spacekeypressed = false;
+            }
+        });
+
+    </script>
+</body>
+
+</html>

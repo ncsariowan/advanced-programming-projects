@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MiniChallenge - FollowTheMouse</title>
+	</head>
+	
+	<style>
+	body {
+		width: 80%;
+		margin: 0 auto;
+		font-size: 1.5em;
+	}
+	
+	img {
+		border: 1px solid black;
+		position: absolute;
+	}
+	</style>
+
+	<script>
+		offset = 10;
+
+		document.addEventListener("mousemove", function (event) {
+			var x = event.clientX + offset;
+			var y = event.clientY + offset;
+
+			console.log(x, y);
+
+			document.getElementById("pic").style.left = x + "px";
+			document.getElementById("pic").style.top = y + "px";
+		});
+
+		function setZ(zIndex) {
+			document.getElementById("pic").style.zIndex = zIndex;
+		}
+	</script>
+	
+	<body>
+
+		<p>On this page, create an effect where an image follows the mouse around
+			(you choose the image but keep it kind of small). Make 
+			it so that the image can be in front of or behind the text.
+		</p>
+		
+		<ul>
+			<li>Look into adding an event listener for mouse movements. 
+				Add this to the whole document (so document.addEventListener...)</li>
+			<li>Look into getting the mouse's x and y coordinate in the
+				callback method that you setup for mouse movements.</li>
+			<li>You will need to modify the CSS related to the image...to modify
+				CSS in JavaScript, you will modify the <em>style</em> property 
+				and then further subproperties of the style.
+					<ul>
+						<li>You probably want to set the style's "position" property</li>
+						<li>You also want to set the top and left property</li>
+						<li>You will want to set the position of the image to
+							be a couple of pixels to the right and below the mouse's
+							actual coordinates. If you don't do this, then all mouse
+							clicks will be on the image, which will make it impossible
+							to click on the buttons for the challenge.
+							</li>
+					</ul>
+				</li>
+			<li>For the last part, putting the image in front of or behind the text,
+			look into the zIndex property (a CSS property).</li>
+			
+			
+		</ul>
+		
+		
+		<input type="button" onclick="setZ(-3)" value="Image behind">
+			
+		<input type="button" onclick="setZ(2)" value="Image in front">
+		
+		<br>
+		
+		<img src="maunu.png" id="pic">
+		
+		<script>
+			
+			
+		</script>
+	</body>
+	
+</html>
+	

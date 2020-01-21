@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Image Cycler</title>
+</head>
+<body>
+	
+	<p>Here are two URLs for images.</p>
+	<ul>
+		<li>https://i.ytimg.com/vi/g7ZnOq-o7rc/hqdefault.jpg</li>
+		<li>https://www.rover.com/blog/wp-content/uploads/2015/07/pug-sunglasses.jpg</li>
+	</ul>
+	<p>When the "Cat" button below is clicked, change the <strong><em>src</em></strong> attribute of the &lt;img&gt; tag to the first image. When the "Dog" button is clicked, change the <strong><em>src</em></strong> attribute of the &lt;img&gt; tag to the second image.</p>
+	
+	<button onclick="document.getElementById('imageToChange').src='https://i.ytimg.com/vi/g7ZnOq-o7rc/hqdefault.jpg';">Crazy Cat</button>
+	<button onclick="document.getElementById('imageToChange').src='https://www.rover.com/blog/wp-content/uploads/2015/07/pug-sunglasses.jpg';">Cool Dog</button>
+	<br>
+	
+	<img width=500 id="imageToChange" src="https://www.rover.com/blog/wp-content/uploads/2015/07/pug-sunglasses.jpg">
+	
+	
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+	<head>
+		<title>The Infamous FizzBuzz</title>
+		<style>
+			.smallIndent {
+				padding-left: 40px;
+			}
+			.importantNote {
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		
+			<p>
+				The "FizzBuzz test" is an interview question designed
+				to test basic coding skill.	The text of the programming 
+				assignment is as follows:
+			</p>
+			<div class="smallIndent">
+				<p>
+					Write a program that prints the numbers from 1 to 100. 
+					But:
+				</p>
+				<ul>
+					<li>for <strong>multiples of three</strong> print �Fizz� 
+						instead of the number.</li>
+					<li>for <strong>multiples of five</strong> print �Buzz� 
+						instead of the number.</li>
+					<li>for numbers which are <strong>multiples of both three 
+						and five</strong> print �FizzBuzz� instead of the number.
+						</li>
+				</ul>
+			</div>
+			<p>
+				I want you to print these items in three ways.
+				<ol>
+					<li>Use console.log() to print these values.</li>
+					<li>Use window.alert() to print these values.</li>
+					<li>Print these values to the &lt;p&gt; tag on the page that has an "id" of "output"</li>
+				</ol>
+				Create a string and concatenate the items to the string so 
+				that output looks like one long string.
+			</p>
+			
+			
+			<p>
+				<strong>
+					Show me this file when it is done. Write your answer in the
+					<em style="color:red">go()</em> function that I provided for
+					you (see the script	tag at the bottom of the html).
+				</strong>
+			</p>
+			
+			<p id="output">Output for FizzBuzz</p>
+		
+		<script>
+			go();
+			
+			//put all code inside of the go function
+			function go() {
+				
+				var output = "";
+
+				// for (var i = 1; i <= 100; i++) {
+
+				// 	if (i % 3 == 0) {
+				// 		output += "Fizz";
+				// 	} 
+
+				// 	if (i % 5 == 0) {
+				// 		output += "Buzz";
+				// 	}
+					
+				// 	if (i % 3 != 0 && i % 5 != 0) {
+				// 		output += i;
+				// 	} 
+
+				// 	output += ", "
+
+				// }
+
+				for (var i = 1; i <= 100; i++) { output += ((i % 3 ? "" : "Fizz") + (i % 5 ? "" : "Buzz")) || i + ", "; }
+
+				console.log(output);
+				window.alert(output);
+				document.getElementById("output").innerHTML = output;
+
+
+			}
+		</script>
+		
+	</body>
+</html>
